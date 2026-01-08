@@ -406,7 +406,14 @@ function App() {
       return;
     }
     const markedContent = markMainVerbs(content);
-    const output = `# オリジナル本文（主動詞マーク済み）\n\n${markedContent}`;
+
+    const yearData = AVAILABLE_YEARS.find(y => `${y.year}-${y.session}` === selectedYearSession);
+    const pastTitle = currentData.past?.title || '';
+    const footer = yearData
+      ? `\n\n[ 類題 ： ${yearData.year}年第${yearData.session}回，”${pastTitle}” ]`
+      : '';
+
+    const output = `# オリジナル本文（主動詞マーク済み）\n\n${markedContent}${footer}`;
     copyToClipboard(output, 'オリジナル本文（主動詞マーク済み）をコピーしました！');
   };
 
@@ -443,9 +450,15 @@ function App() {
     const markedContent = markMainVerbs(content);
     const syntaxTemplate = generateSyntaxTemplate(content, title || 'Original Passage');
 
+    const yearData = AVAILABLE_YEARS.find(y => `${y.year}-${y.session}` === selectedYearSession);
+    const pastTitle = currentData.past?.title || '';
+    const footer = yearData
+      ? `\n\n[ 類題 ： ${yearData.year}年第${yearData.session}回，”${pastTitle}” ]`
+      : '';
+
     const output = [
       `# ${title || 'Original Passage'} - Complete Data`,
-      `\n## 1. オリジナル本文（主動詞マーク済み）\n\n${markedContent}`,
+      `\n## 1. オリジナル本文（主動詞マーク済み）\n\n${markedContent}${footer}`,
       `\n## 2. オリジナル設問\n\n${questions || '（設問データなし）'}`,
       `\n## 3. 構文解説テンプレート\n\n${syntaxTemplate}`
     ].join('\n\n---\n\n');
