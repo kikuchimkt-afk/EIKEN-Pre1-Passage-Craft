@@ -1,0 +1,281 @@
+:root {
+  /* EIKEN Navigator Theme - Light & Trustworthy */
+  /* Main Backgrounds */
+  --bg-primary: #f8fafc;
+  /* Page Background - Very Light Blue/Gray */
+  --bg-secondary: #ffffff;
+  /* Panel Background - White */
+  --bg-tertiary: #f1f5f9;
+  /* Secondary Elements */
+
+  /* Header specific */
+  --header-bg: #2563eb;
+  /* Brand Blue */
+  --header-text: #ffffff;
+
+  /* Text Colors */
+  --text-primary: #0f172a;
+  /* Dark Slate - Main Text */
+  --text-secondary: #475569;
+  /* Slate 600 - Subtitles */
+  --text-muted: #94a3b8;
+  /* Slate 400 */
+  --text-inverse: #ffffff;
+
+  /* Accents */
+  --accent-primary: #2563eb;
+  /* Blue 600 */
+  --accent-hover: #1d4ed8;
+  /* Blue 700 */
+  --accent-light: #eff6ff;
+  /* Blue 50 */
+
+  /* Borders */
+  --border-color: #cbd5e1;
+  /* Slate 300 */
+
+  /* Glass/Utility overrides for Light Mode */
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.05);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Layout Dimensions */
+  --header-height: 60px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: hidden;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar Styling - Light Mode */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Utility Cards */
+.glass-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.btn {
+  background: var(--bg-secondary);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background: var(--accent-light);
+}
+
+.btn-primary {
+  background: #f59e0b;
+  /* Amber 500 */
+  border-color: #f59e0b;
+  color: white;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+  background: #d97706;
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  /* Header select */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+select option {
+  background-color: white;
+  color: var(--text-primary);
+}
+
+select:focus {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Tabs */
+.tabs-header {
+  display: flex;
+  gap: 8px;
+  padding: 0.75rem 1rem 0;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-primary);
+}
+
+.tab-btn {
+  padding: 0.6rem 1.25rem;
+  background: var(--bg-tertiary);
+  /* Inactive tab bg */
+  border: 1px solid transparent;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  margin-bottom: -2px;
+  /* Connect with border */
+  border: 1px solid transparent;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: #e2e8f0;
+}
+
+.tab-btn.active {
+  color: var(--accent-primary);
+  background: var(--bg-secondary);
+  /* White */
+  border: 2px solid var(--border-color);
+  border-bottom-color: var(--bg-secondary);
+  /* Hide bottom border */
+  border-top: 3px solid var(--accent-primary);
+  /* Selection Indicator */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.content-area {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.markdown-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-primary);
+}
+
+strong {
+  color: var(--text-primary);
+}
+/* Markdown Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.data-table tr:hover {
+  background-color: #edf2f7;
+}
+
+
+/* Panels for Syntax Analysis */
+.panel-success {
+  background-color: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+  color: #166534;
+}
+
+.panel-warning {
+  background-color: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+  color: #92400e;
+}
+
+.panel-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Font Consistency Fixes */
+.markdown-body * {
+  font-family: var(--font-sans) !important;
+}
+
+.markdown-body em {
+  font-style: normal;
+  font-family: var(--font-sans);
+  background-color: transparent;
+}
+
+.markdown-body blockquote {
+  color: var(--text-secondary);
+  border-left: 4px solid var(--border-color);
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: normal;
+}
+
